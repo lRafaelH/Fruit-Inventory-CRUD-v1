@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruit Inventory</title>
+</head>
+<body>
+<div align="center">
+    <h1>Fruit Inventory</h1>
+    <a href="new">Create product</a>
+    <br><br/>
+    <table border="1 "><thead>
+    <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Location</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+        <tbody>
+        <tr th:each="fruit : ${listFruits}">
+            <td th:text="${fruit.id}">ID</td>
+            <td th:text="${fruit.company}">Company</td>
+            <td th:text="${fruit.name}">Name</td>
+            <td th:text="${fruit.amount}">Amount</td>
+            <td th:text="${fruit.location}">Location</td>
+
+            <td> <a th:href ="@{'/edit/' + ${fruit.id}}">Edit</a>
+            </td>
+            <td><a th:href="@{'/delete/' + ${fruit.id}}">Delete</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
